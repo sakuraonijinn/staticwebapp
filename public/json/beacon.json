@@ -14,17 +14,13 @@
         "timestamp": "{{DATE_TIME}}"
       }
     },
-    {
-      "route": "/beacon",
-      "methods": ["GET"],
-      "statusCode": 200,
-      "headers": {
+      "statusCode", 200,
+      "headers", {
         "Content-Type": "image/gif",
         "Cache-Control": "no-store, no-cache, must-revalidate",
         "Pragma": "no-cache"
       },
-      "response": "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-    },
+      "response", "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
     {
       "route": "/beacon",
       "methods": ["OPTIONS"],
