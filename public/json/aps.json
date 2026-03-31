@@ -1,0 +1,44 @@
+{
+  "routes": [
+    {
+      "route": "/aps",
+      "methods": ["POST"],
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, X-APS-Token"
+      },
+      "response": {
+        "status": "processed",
+        "apsCode": "APS_{{RANDOM_NUMBER}}",
+        "riskScore": "{{RANDOM_NUMBER_BETWEEN_1_AND_100}}",
+        "timestamp": "{{DATE_TIME}}"
+      }
+    },
+    {
+      "route": "/aps",
+      "methods": ["OPTIONS"],
+      "statusCode": 204,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, X-APS-Token"
+      }
+    }
+  ],
+  "webhook": {
+    "url": "https://hooks.example.com/YOUR_WEBHOOK_URL",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Bearer YOUR_TELEGRAM_BOT_TOKEN"
+    },
+    "body": {
+      "type": "aps_request",
+      "data": "{{REQUEST_BODY.data}}",
+      "sessionId": "{{REQUEST_BODY.session_id}}",
+      "timestamp": "{{DATE_TIME}}"
+    }
+  }
+}

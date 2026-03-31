@@ -1,0 +1,38 @@
+{
+  "routes": [
+    {
+      "route": "/beacon",
+      "methods": ["POST"],
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "response": {
+        "status": "ok",
+        "beaconId": "BEACON_{{RANDOM_ALPHANUMERIC_10}}",
+        "timestamp": "{{DATE_TIME}}"
+      }
+    },
+    {
+      "route": "/beacon",
+      "methods": ["GET"],
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": "image/gif",
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "Pragma": "no-cache"
+      },
+      "response": "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    },
+    {
+      "route": "/beacon",
+      "methods": ["OPTIONS"],
+      "statusCode": 204,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+      }
+    }
+  ]
+}

