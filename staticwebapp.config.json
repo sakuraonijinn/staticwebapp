@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "route": "api/drop.js",
+      "methods": [
+        "get",
+        "post",
+        "head",
+        "options"
+      ],
+      "rewrite": "/drop",
+      "statusCode": 200,
+      "allowedRoles": [
+        "owner"
+      ],
+      "headers": {
+        "X-DEAD_DROP": "true"
+      }
+    }
+  ]
+}
