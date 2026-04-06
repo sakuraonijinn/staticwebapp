@@ -16,6 +16,22 @@
       "headers": {
         "X-DEAD_DROP": "true"
       }
+    },
+    {
+      "route": "/api/drop",
+      "methods": [
+        "get",
+        "head",
+        "post",
+        "options"
+      ],
+      "statusCode": 300,
+      "allowedRoles": [
+        "owner"
+      ],
+      "headers": {
+        "X-Dead-drop=true": "OMEGA_"
+      }
     }
   ]
 }
