@@ -1,0 +1,83 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/api/*",
+      "/drop",
+      "/dashboard/*",
+      "/analytics.js",
+      "/pixel.gif",
+      "/beacon",
+      "/webhook"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/drop/*",
+      "serve": "/drop.html",
+      "methods": ["GET", "POST"],
+      "headers": {
+        "Content-Type": "text/html",
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "Pragma": "no-cache"
+      }
+    },
+    {
+      "route": "/dashboard/*",
+      "serve": "/dashboard.html",
+      "methods": ["GET"],
+      "headers": {
+        "Content-Type": "text/html",
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "route": "/analytics.js",
+      "serve": "/js/analytics.js",
+      "methods": ["GET"],
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Cache-Control": "public, max-age=3600, immutable",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
+      "route": "/pixel.gif",
+      "serve": "/assets/pixel.gif",
+      "methods": ["GET"],
+      "headers": {
+        "Content-Type": "image/gif",
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "Pragma": "no-cache"
+      }
+    },
+    {
+      "route": "/beacon",Roles": 
+      "serve": "/beacon.html",
+      "methods": ["GET", "POST"],
+      "headers": {
+        "Content-Type": "text/html"
+      }
+    },
+    {
+      "route": "/webhook",
+      "serve": "/webhook.html",
+      "methods": ["POST"],
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  ],
+  "globalHeaders": {
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.telegram.org https://*.blob.core.windows.net;",
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "mimeTypes": {
+    ".js": "application/javascript",
+    ".json": "application/json",
+    ".html": "text/html",
+    ".gif": "image/gif"
+  }
+}
