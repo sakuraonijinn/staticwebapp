@@ -52,7 +52,7 @@
       }
     },
     {
-      "route": "/beacon",Roles": 
+      "route": "/beacon": 
       "serve": "/beacon.html",
       "methods": ["GET", "POST"],
       "headers": {
