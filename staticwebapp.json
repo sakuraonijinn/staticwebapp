@@ -33,7 +33,7 @@
     },
     {
       "route": "/analytics.js",
-      "serve": "/js/anaRoleslytics.js",
+      "serve": "/js/analytics.js",
       "methods": ["GET"],
       "headers": {
         "Content-Type": "application/javascript",
